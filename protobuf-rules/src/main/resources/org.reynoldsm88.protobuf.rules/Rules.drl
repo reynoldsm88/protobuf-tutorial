@@ -1,0 +1,13 @@
+package org.reynoldsm88.protobuf.rules;
+
+import org.reynoldsm88.protobuf.model.Input;
+import org.reynoldsm88.protobuf.model.Output;
+
+
+rule "Your First Rule"
+    when
+        accumulate( Input(); $count : count() )
+    then
+        Output output = Output.newBuilder().setCount( $count ).build();
+        insert( output );
+end

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.reynoldsm88.protobuf.model";
+option java_outer_classname = "ProtoModel";
+
+package tutorial;
+
+message Input {
+    string name = 1;
+}
+
+message Output {
+    int64 count = 1;
+}
+
+message Request {
+    repeated Input input = 1;
+}
+
+message Response {
+    Output output = 1;
+}
+
+service MyService {
+    rpc Execute (Request) returns (Response) {}
+}
